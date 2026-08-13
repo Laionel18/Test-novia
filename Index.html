@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Cuánto me amas?</title>
+    <!-- Importando una fuente hermosa y dramática para el mensaje de error -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --pink-light: #ffe6ea;
@@ -86,25 +89,24 @@
             display: none;
         }
 
-        /* Estilos específicos para la pantalla de error */
-        .sad-hamster {
-            max-width: 250px;
-            width: 100%;
-            margin: 20px auto;
-            border-radius: 15px;
-            display: block;
+        /* ESTILOS NUEVOS PARA EL TEXTO DRAMÁTICO */
+        .dramatic-text {
+            font-family: 'Dancing Script', cursive;
+            color: #ff4d6d;
+            font-size: 3.5rem;
+            margin: 40px 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 0px var(--pink-light), 4px 4px 0px var(--pink-medium);
+            transform: rotate(-3deg);
+            display: inline-block;
+            animation: latido 1.5s infinite;
         }
 
-        .fallback-emoji {
-            font-size: 5rem;
-            margin: 20px 0;
-            display: none; /* Se muestra solo si falla la imagen */
-        }
-
-        .error-title {
-            color: #e74c3c;
-            font-weight: bold;
-            font-size: 1.5rem;
+        /* Pequeña animación para que se vea más dramático */
+        @keyframes latido {
+            0% { transform: rotate(-3deg) scale(1); }
+            50% { transform: rotate(-3deg) scale(1.05); }
+            100% { transform: rotate(-3deg) scale(1); }
         }
 
         /* Pantalla final */
@@ -142,18 +144,11 @@
             </div>
         </div>
 
-        <!-- Pantalla de Error (Hámster Triste) -->
+        <!-- Pantalla de Error (Solo tipografía dramática) -->
         <div id="error-screen">
-            <p class="error-title">¡Viste que no me amas! 😭</p>
+            <!-- Aquí está el nuevo texto con la tipografía bonita -->
+            <div class="dramatic-text">¡Viste que no me amas! 💔</div>
             
-            <!-- GIF corregido con URL estable de Tenor. Si falla, muestra los emojis -->
-            <img src="https://media.tenor.com/2x18hSvh9H8AAAAi/sad-hamster.gif" 
-                 alt="Hámster llorando triste" 
-                 class="sad-hamster"
-                 onerror="this.style.display='none'; document.getElementById('emoji-fallback').style.display='block';">
-                 
-            <div id="emoji-fallback" class="fallback-emoji">🐹😭💔</div>
-
             <p>Me has roto el corazón... pero te doy una oportunidad para rectificar.</p>
             <button class="btn" onclick="retryQuestion()">Perdón 🥺</button>
         </div>
@@ -260,3 +255,4 @@
     </script>
 </body>
 </html>
+
